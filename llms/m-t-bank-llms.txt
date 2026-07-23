@@ -1,0 +1,39 @@
+# M&T Bank
+
+> M&T Bank (M&T Bank Corporation, NYSE: MTB) is a US super-regional bank holding company headquartered in Buffalo, New York, operating through Manufacturers and Traders Trust Company and owning Wilmington Trust. It runs a first-party developer portal / "API Store" at developer.mtb.com for institutional and wholesale clients, covering Banking & Treasury and Wilmington Trust Custody APIs. The portal is gated behind Microsoft Entra login and Azure API Management subscription keys; per-product OpenAPI reference is available only after authentication. No public FDX / CFPB Section 1033 consumer data-access API is documented at review time; consumer-permissioned data is shared through aggregators (Plaid).
+
+## Developer
+
+- [Developer Portal](https://developer.mtb.com/): M&T API Store home (Entra-gated).
+- [APIs](https://developer.mtb.com/apis): Banking & Treasury and Custody API product listing.
+- [Getting Started](https://developer.mtb.com/getting-started): Onboarding and subscription-key setup.
+- [Support](https://developer.mtb.com/support): Developer support channel.
+
+## Banking & Treasury APIs
+
+- [Payment Initiation API](https://developer.mtb.com/apis): Institutional payment initiation (gated reference).
+- [Payment Status API](https://developer.mtb.com/apis): Payment status lookup (gated reference).
+- [Cash Activity API](https://developer.mtb.com/apis): Cash activity reporting for treasury-management clients.
+- [Cash Projection API](https://developer.mtb.com/apis): Cash projection / forecasting.
+- [Pending Transactions API](https://developer.mtb.com/apis): Pending transactions reporting.
+- [Event Notification API](https://developer.mtb.com/apis): Callback/webhook subscription with request signing.
+
+## Wilmington Trust Custody APIs
+
+- [Custody End of Day API](https://developer.mtb.com/apis): Custody end-of-day product for institutional clients.
+- [Fund Accounting API](https://developer.mtb.com/apis): Fund valuation and accounting (fund administration).
+- [Account Valuations API](https://developer.mtb.com/apis): Account valuations for custody/portfolio reporting.
+- [Position Exposure API](https://developer.mtb.com/apis): Position exposure for institutional custody/portfolio clients.
+
+## Company
+
+- [M&T Bank](https://www.mtb.com/): Corporate site.
+- [Treasury Management](https://www.mtb.com/commercial/treasury-management): Commercial treasury-management services.
+- [Newsroom](https://newsroom.mtb.com/): Company news and press.
+- [Terms of Use](https://www.mtb.com/help-center/bank-policies/terms-of-use)
+- [Privacy](https://www.mtb.com/privacy)
+
+## Notes
+
+- Authentication: Microsoft Entra login + Azure API Management subscription keys. Per-product OpenAPI is available only after authenticated portal login.
+- No public OpenAPI, well-known discovery, security.txt, SDK, CLI, or MCP surface was found at review time (developer.mtb.com serves an Angular SPA shell for all deep-link paths).

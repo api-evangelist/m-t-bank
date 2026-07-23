@@ -179,6 +179,8 @@ apis:
   - type: APIReference
     url: https://developer.mtb.com/apis
 common:
+- type: DomainSecurity
+  url: security/m-t-bank-domain-security.yml
 - type: Website
   url: https://www.mtb.com/
 - type: DeveloperPortal
@@ -199,6 +201,10 @@ common:
   url: https://www.mtb.com/privacy
 - type: TreasuryManagement
   url: https://www.mtb.com/commercial/treasury-management
+- type: DomainSecurity
+  url: security/m-t-bank-domain-security.yml
+- type: LLMsTxt
+  url: llms/m-t-bank-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
