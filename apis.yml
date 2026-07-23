@@ -1,0 +1,204 @@
+aid: m-t-bank
+url: https://raw.githubusercontent.com/api-evangelist/m-t-bank/refs/heads/main/apis.yml
+name: M&T Bank
+kind: company
+description: >-
+  M&T Bank is a US super-regional bank holding company (M&T Bank Corporation,
+  NYSE: MTB) headquartered in Buffalo, New York, operating through its national
+  bank subsidiary Manufacturers and Traders Trust Company. With roughly $200
+  billion in assets it is one of the twenty largest US commercial banks, serving
+  consumers, businesses, and institutional clients across the eastern United
+  States, and it owns Wilmington Trust, its custody, fund-administration, and
+  wealth arm. Unlike UK/AU open banking there is no single mandated contract in
+  the US, so M&T's public API posture is split: it runs a real first-party
+  Developer Portal / "API Store" at developer.mtb.com for institutional and
+  wholesale clients (Banking & Treasury plus Wilmington Trust Custody APIs),
+  gated behind Microsoft Entra login and Azure API Management subscription keys
+  with per-product OpenAPI reference available only after authentication.
+  Consumer-permissioned account data is shared through aggregators (Plaid) rather
+  than a public first-party consumer API. No public FDX conformance or CFPB
+  Section 1033 data-access API is documented on the portal at review time.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- United States
+- Super-Regional Bank
+- Treasury Management
+- Payments
+- Custody
+- Fund Accounting
+- Open Finance
+- Data Aggregation
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: m-t-bank:payment-initiation
+  name: Payment Initiation API
+  description: >-
+    Institutional payment initiation product listed in M&T's Banking and
+    Treasury API group on the developer portal. Per-product reference is
+    available after Entra login and Azure APIM subscription.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Payments
+  - Treasury
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:payment-status
+  name: Payment Status API
+  description: >-
+    Payment status lookup product in the Banking and Treasury API group.
+    Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Payments
+  - Treasury
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:cash-activity
+  name: Cash Activity API
+  description: >-
+    Cash activity reporting product in the Banking and Treasury API group for
+    treasury-management clients. Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Treasury
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:cash-projection
+  name: Cash Projection API
+  description: >-
+    Cash projection / forecasting product in the Banking and Treasury API group.
+    Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Treasury
+  - Forecasting
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:pending-transactions
+  name: Pending Transactions API
+  description: >-
+    Pending transactions reporting product in the Banking and Treasury API
+    group. Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Treasury
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:event-notification
+  name: Event Notification API
+  description: >-
+    Event notification setup and subscription product enabling callback/webhook
+    delivery with request signing, listed in the Banking and Treasury API group.
+    Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Webhooks
+  - Notifications
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:custody-end-of-day
+  name: Custody End of Day API
+  description: >-
+    Wilmington Trust custody end-of-day product for institutional clients,
+    listed in the portal's Custody API group. Reference gated behind portal
+    authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Custody
+  - Institutional
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:fund-accounting
+  name: Fund Accounting API
+  description: >-
+    Fund valuation and accounting product (transfer-agency / fund-administration
+    services) in the Custody API group. Reference gated behind portal
+    authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Custody
+  - Fund Accounting
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:account-valuations
+  name: Account Valuations API
+  description: >-
+    Account valuations product supporting custody and institutional portfolio
+    reporting. Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Custody
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+- aid: m-t-bank:position-exposure
+  name: Position Exposure API
+  description: >-
+    Position exposure product for institutional custody/portfolio clients.
+    Reference gated behind portal authentication.
+  humanURL: https://developer.mtb.com/apis
+  tags:
+  - Custody
+  - Institutional
+  properties:
+  - type: Documentation
+    url: https://developer.mtb.com/apis
+  - type: APIReference
+    url: https://developer.mtb.com/apis
+common:
+- type: Website
+  url: https://www.mtb.com/
+- type: DeveloperPortal
+  url: https://developer.mtb.com/
+- type: Documentation
+  url: https://developer.mtb.com/apis
+- type: GettingStarted
+  url: https://developer.mtb.com/getting-started
+- type: Support
+  url: https://developer.mtb.com/support
+- type: LinkedIn
+  url: "https://www.linkedin.com/company/m&t-bank"
+- type: Blog
+  url: https://newsroom.mtb.com/
+- type: TermsOfService
+  url: https://www.mtb.com/help-center/bank-policies/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.mtb.com/privacy
+- type: TreasuryManagement
+  url: https://www.mtb.com/commercial/treasury-management
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

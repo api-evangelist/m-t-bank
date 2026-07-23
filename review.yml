@@ -1,0 +1,80 @@
+aid: m-t-bank
+name: M&T Bank
+review:
+  question: Does M&T Bank expose a public first-party developer API, downloadable OpenAPI, or a documented FDX / Section 1033 data-access surface?
+  answer: partial
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    M&T Bank operates a genuine, live first-party Developer Portal / "API Store"
+    at https://developer.mtb.com (HTTP 200 confirmed). It is a single-page Azure
+    API Management portal whose SPA calls an APIM management backend at
+    https://mtb-1prod1-apim.mtb.com/dvp/v1 (the /apis catalog endpoint returns
+    HTTP 401 "missing subscription key"). Authentication is Microsoft Entra ID
+    (MSAL, login.mtb.com) plus a per-application API key + client secret and an
+    Azure APIM subscription key; the portal's own strings confirm an
+    "AUTHENTICATION AND AUTHORIZATION" flow and "API KEY AND CLIENT SECRET"
+    credentials. The catalog is institutional/wholesale, not retail, and is
+    grouped into two families extracted from the portal application: a "Banking
+    and Treasury APIs" group (Payment Initiation, Payment Status, Cash Activity,
+    Cash Projection, Pending Transactions, Accounting Activity, Trade Status,
+    Event Notification Setup/Subscription) and a "Custody APIs" group tied to
+    Wilmington Trust (Custody End of Day, Fund Accounting, Account Valuations,
+    Position Exposure, Depositary — "custody of global portfolio of assets" and
+    "fund valuation and accounting services and transfer agency services").
+    Per-product OpenAPI/reference is available only after login, so NO OpenAPI
+    was publicly downloadable and none was harvested. No FDX conformance
+    statement and no CFPB Section 1033 consumer data-access API are published on
+    the portal at review time; consumer-permissioned data access is instead
+    documented (via OpenBankingTracker) as aggregator-only through Plaid. Net:
+    a real, confirmed developer portal and institutional API surface exists, but
+    it is fully authentication-gated with no public specs, and consumer open
+    finance is aggregator-mediated rather than a first-party public API.
+  authModel:
+    - OAuth2 / OpenID Connect via Microsoft Entra ID (MSAL, login.mtb.com)
+    - Per-application API key + client secret
+    - Azure API Management subscription key
+  specProvenance: none-public
+  openapiHarvested: false
+  fdxParticipant: false
+  section1033Posture: not-published
+  aggregatorAccess:
+    - Plaid
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://mtb-1prod1-apim.mtb.com/dvp/v1
+      documented: true
+      note: Azure APIM gateway backing the developer portal; /apis returns HTTP 401 (subscription key required). Product runtime paths are gated and not publicly documented.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Event Notification Setup/Subscription products deliver signed callbacks to a client-supplied call-back URL.
+  portalConfirmed: true
+  portalStatus: 200
+sources:
+  - url: https://developer.mtb.com/
+    type: DeveloperPortal
+    note: Live Angular SPA "Developer Portal | M&T Bank" (HTTP 200); routes /apis, /apis/:id, /getting-started, /support, /permissions, /login.
+  - url: https://mtb-1prod1-apim.mtb.com/dvp/v1/apis
+    type: APIReference
+    note: APIM backend catalog endpoint; returns HTTP 401 "Access denied due to missing subscription key".
+  - url: https://developer.mtb.com/apis
+    type: Documentation
+    note: API Store catalog page; individual product reference/OpenAPI gated behind Entra login.
+  - url: https://www.openbankingtracker.com/provider/mandt-bank
+    type: Reference
+    note: Reports M&T consumer data access as aggregator-only via Plaid; no first-party public consumer API.
+  - url: https://www.mtb.com/help-center/bank-policies/terms-of-use
+    type: TermsOfService
+    note: M&T Bank terms of use (HTTP 200).
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Captured M&T's confirmed first-party institutional developer portal and its
+    real, named Banking & Treasury and Custody API products as apis[] entries
+    pointing to the reachable API Store catalog. No public OpenAPI existed to
+    harvest (all product specs are login-gated), and no FDX/1033 surface is
+    published, so none was fabricated; consumer open-finance access is recorded
+    honestly as aggregator-only via Plaid.
