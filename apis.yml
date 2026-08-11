@@ -179,6 +179,8 @@ apis:
   - type: APIReference
     url: https://developer.mtb.com/apis
 common:
+- type: Login
+  url: https://www.mtb.com/login
 - type: DomainSecurity
   url: security/m-t-bank-domain-security.yml
 - type: Website
