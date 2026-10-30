@@ -1,4 +1,4 @@
-# M&T Bank (m-t-bank)
+# M&T Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,67 +64,98 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-M&T Bank is a US super-regional bank holding company (M&T Bank Corporation, NYSE: MTB) headquartered in Buffalo, New York, operating through its national bank subsidiary Manufacturers and Traders Trust Company and its custody/wealth arm Wilmington Trust. With roughly $200 billion in assets it is one of the twenty largest US commercial banks, serving consumers, businesses, and institutional clients across the eastern United States.
+M&T Bank is a US super-regional bank holding company (M&T Bank Corporation, NYSE: MTB) headquartered in Buffalo, New York, operating through its national bank subsidiary Manufacturers and Traders Trust Company. With roughly $200 billion in assets it is one of the twenty largest US commercial banks, serving consumers, businesses, and institutional clients across the eastern United States, and it owns Wilmington Trust, its custody, fund-administration, and wealth arm. Unlike UK/AU open banking there is no single mandated contract in the US, so M&T's public API posture is split: it runs a real first-party Developer Portal / "API Store" at developer.mtb.com for institutional and wholesale clients (Banking & Treasury plus Wilmington Trust Custody APIs), gated behind Microsoft Entra login and Azure API Management subscription keys with per-product OpenAPI reference available only after authentication. Consumer-permissioned account data is shared through aggregators (Plaid) rather than a public first-party consumer API. No public FDX conformance or CFPB Section 1033 data-access API is documented on the portal at review time.
 
-M&T runs a real first-party **Developer Portal / "API Store"** at [developer.mtb.com](https://developer.mtb.com/) aimed at institutional and wholesale clients. It is an Azure API Management portal gated behind Microsoft Entra login and per-app API key + client secret; the individual product OpenAPI references are visible only after authentication. The catalog is organized into a **Banking & Treasury** API group (payments, cash reporting/projection, event notifications) and a **Wilmington Trust Custody** API group (custody end-of-day, fund accounting, valuations, position exposure). Consumer-permissioned account data is shared through aggregators (Plaid) rather than a public first-party consumer API. No public FDX conformance or CFPB Section 1033 data-access API is documented on the portal at review time.
+**Areas:** Financial Services · Banking · United States · Super-Regional Bank · Treasury Management · Payments · Custody · Fund Accounting · Open Finance
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/m-t-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/m-t-bank/refs/heads/main/apis.yml)
+## M&T Bank on APIs.io
 
-## Tags
+Everything profiled for M&T Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/m-t-bank/](https://apis.io/providers/m-t-bank/)** — or go straight to one of the APIs or properties below.
 
-- Financial Services
-- Banking
-- United States
-- Super-Regional Bank
-- Treasury Management
-- Payments
-- Custody
-- Fund Accounting
-- Open Finance
-- Data Aggregation
+### APIs (10)
 
-## Timestamps
+- [Payment Initiation API](https://apis.io/apis/m-t-bank/payment-initiation/) — Institutional payment initiation product listed in M&T's Banking and Treasury API group on the developer portal. Per-product reference is available after…
+- [Payment Status API](https://apis.io/apis/m-t-bank/payment-status/) — Payment status lookup product in the Banking and Treasury API group. Reference gated behind portal authentication.
+- [Cash Activity API](https://apis.io/apis/m-t-bank/cash-activity/) — Cash activity reporting product in the Banking and Treasury API group for treasury-management clients. Reference gated behind portal authentication.
+- [Cash Projection API](https://apis.io/apis/m-t-bank/cash-projection/) — Cash projection / forecasting product in the Banking and Treasury API group. Reference gated behind portal authentication.
+- [Pending Transactions API](https://apis.io/apis/m-t-bank/pending-transactions/) — Pending transactions reporting product in the Banking and Treasury API group. Reference gated behind portal authentication.
+- [Event Notification API](https://apis.io/apis/m-t-bank/event-notification/) — Event notification setup and subscription product enabling callback/webhook delivery with request signing, listed in the Banking and Treasury API group.…
+- [Custody End of Day API](https://apis.io/apis/m-t-bank/custody-end-of-day/) — Wilmington Trust custody end-of-day product for institutional clients, listed in the portal's Custody API group. Reference gated behind portal authentication.
+- [Fund Accounting API](https://apis.io/apis/m-t-bank/fund-accounting/) — Fund valuation and accounting product (transfer-agency / fund-administration services) in the Custody API group. Reference gated behind portal authentication.
+- [Account Valuations API](https://apis.io/apis/m-t-bank/account-valuations/) — Account valuations product supporting custody and institutional portfolio reporting. Reference gated behind portal authentication.
+- [Position Exposure API](https://apis.io/apis/m-t-bank/position-exposure/) — Position exposure product for institutional custody/portfolio clients. Reference gated behind portal authentication.
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The following API products are named in M&T's Developer Portal catalog. Human URLs point to the portal's API listing; each product's detailed reference and OpenAPI is available only after Entra login and an Azure APIM subscription.
+#### Security (1)
 
-### Banking and Treasury API Group
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Payment Initiation API** — institutional payment initiation.
-- **Payment Status API** — payment status lookup.
-- **Cash Activity API** — cash activity reporting for treasury clients.
-- **Cash Projection API** — cash forecasting/projection.
-- **Pending Transactions API** — pending transaction reporting.
-- **Event Notification API** — callback/webhook setup and subscription with request signing.
+- [M T Bank Domain Security](https://apis.io/security/m-t-bank/m-t-bank-domain-security/)
 
-### Custody API Group (Wilmington Trust)
+## Where to find this API
 
-- **Custody End of Day API** — custody end-of-day positions and activity.
-- **Fund Accounting API** — fund valuation and accounting / transfer-agency services.
-- **Account Valuations API** — account valuations for custody/portfolio reporting.
-- **Position Exposure API** — position exposure for institutional portfolios.
-
-- **Human URL:** [https://developer.mtb.com/apis](https://developer.mtb.com/apis)
-- **Portal:** [https://developer.mtb.com/](https://developer.mtb.com/)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.mtb.com/)
-- [Developer Portal](https://developer.mtb.com/)
 - [Documentation](https://developer.mtb.com/apis)
-- [Getting Started](https://developer.mtb.com/getting-started)
+- [Getting started](https://developer.mtb.com/getting-started)
 - [Support](https://developer.mtb.com/support)
-- [LinkedIn](https://www.linkedin.com/company/m&t-bank)
-- [Newsroom / Blog](https://newsroom.mtb.com/)
-- [Terms of Service](https://www.mtb.com/help-center/bank-policies/terms-of-use)
-- [Privacy Policy](https://www.mtb.com/privacy)
-- [Treasury Management](https://www.mtb.com/commercial/treasury-management)
+- [Blog](https://newsroom.mtb.com/)
+- [Terms of service](https://www.mtb.com/help-center/bank-policies/terms-of-use)
+- [Privacy policy](https://www.mtb.com/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 11.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 27.6 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.0** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/m-t-bank/](https://apis.io/providers/m-t-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for M&T Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/m-t-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
